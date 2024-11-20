@@ -164,18 +164,207 @@
 
 // ***************************************************************
 
+// const numbers = [3, 5, 1, 9, 2];
 
-const numbers = [3, 5, 1, 9, 2];
+// const max = numbers.reduce((acc, curr) => {
+//    return curr > acc ? curr : acc
+// }, 0);
 
-const max = numbers.reduce((acc, curr) => {
-   return curr > acc ? curr : acc
-}, 0);
+// console.log(max);
 
-console.log(max);
+// const numbers1 = [3, 5, 1, 9, 2];
 
-const numbers1 = [3, 5, 1, 9, 2];
+// const sorting = numbers.sort((a, b) => b - a)
 
-const sorting = numbers.sort((a, b) => b-a)
+// console.log(sorting);
 
-console.log(sorting);
+// *************************************************************
 
+// fibbo
+// const fibbo = (num) => {
+//    const arr = [0, 1];
+
+//    for (let i = 2; i < num; i++) {
+//       arr.push(arr[i - 1] + arr[i - 2]);
+//       console.log("before arr :", arr)
+//    }
+//    console.log("after arr :", arr)
+// }
+// fibbo(20);
+
+//***********************************************************
+
+// const sum = (arr) => {
+//    const sum = arr.reduce((acc, curr) => {
+//       return acc + curr
+//    }, 0)
+
+//    console.log(sum)
+// }
+
+// sum([100, 200, 300, -5076, 10000])
+
+// ***********************************************************
+// const findSecondLarget = (arr) => {
+//    const len = arr.length;
+//    let largest = -Infinity;
+//    let secondLargest = -Infinity;
+//    let thirdLargest = -Infinity;
+
+//    for (let i = 0; i < len; i++) {
+//       if (arr[i] > largest) {
+//          console.log("entring first...", arr[i])
+
+//          thirdLargest = secondLargest;
+//          secondLargest = largest;
+//          largest = arr[i]
+//       }
+//       else if (arr[i] > secondLargest && arr[i] !== largest) {
+//          console.log("entring second...", arr[i])
+
+//          thirdLargest = secondLargest;
+//          secondLargest = arr[i]
+//       }
+//       else if (arr[i] > thirdLargest && arr[i] != largest && arr[i] != secondLargest) {
+//          console.log("entring third...", arr[i])
+//          thirdLargest = arr[i];
+//       }
+//    }
+
+//    console.log("largest :", largest);
+//    console.log("second largest :", secondLargest);
+//    console.log("third largest :", thirdLargest);
+
+
+// }
+
+// findSecondLarget([20, 30, 50, 10, 25, 40, 33, 25]);
+
+// **********************************************************
+
+// find squre in another Array
+// const findSquare = (arr1, arr2) => {
+//    console.log(arr1)
+//    console.log(arr2)
+
+//    for (let i = 0; i < arr1.length; i++) {
+//       let square = arr1[i] * arr1[i]
+
+//       if (arr2.includes(square)) {
+//          console.log("  square is found !!!", arr1[i], square)
+//       }
+//    }
+// }
+
+// const arr1 = [1, 2, 3, 4, 5];
+// const arr2 = [0, 2, 3, 10, 25];
+
+// findSquare(arr1, arr2)
+
+// **********************************************************
+
+// find duplicate in array
+// const findDuplicates = (arr) => {
+//    let duplicates = new Set(arr)
+//    let second = [];
+//    console.log("duplicates :", duplicates)
+
+//    for (let i = 0; i < arr.length; i++) {
+
+//       if (!second.includes(arr[i])) {
+//          second.push(arr[i])
+//       }
+//       if(second.includes(arr[i])){
+//          console.log("match....")
+//       }
+//    }
+//    console.log("second :", second);
+
+// }
+// findDuplicates([1, 2, 3, 4, 5, 6, 8, 9, 5, 4, 3, 2, 4, 5, 6, 7])
+
+// *************************************************************
+
+// Find the largest and smallest number in an unsorted array of integers
+
+const arr = [10, 2, 3, 4, 100, 1];
+
+const findMaxMin = (arr) => {
+
+   let max = arr[0];
+   let min = arr[0];
+   console.log("before max :", max)
+   console.log("before min :", min)
+   for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > max) {
+         max = arr[i]
+      }
+      else if (arr[i] < min) {
+         min = arr[i]
+      }
+   }
+
+
+
+   console.log("after max :", max)
+   console.log("after min :", min)
+
+
+}
+findMaxMin(arr);
+
+// ***************************************************8
+
+const arr1 = [1, 2, 1, 5, 1, 1, 1];
+const removeDupes = (arr) => {
+
+   let unique = [];
+   let previous = arr[0];
+   unique[0] = previous
+
+   for (let i = 0; i < arr.length; i++) {
+
+      if (arr[i] !== previous) {
+         unique.push(arr[i]);
+      }
+      previous = arr[i];
+   }
+   return unique;
+
+}
+console.log(removeDupes(arr1));
+
+
+
+function findMinMax(arr2) {
+   let min = Math.min(...arr2);  // Spread the array elements into individual arguments
+   let max = Math.max(...arr2);  // Spread the array elements into individual arguments
+
+   return [min, max];  // Return an array containing the min and max values
+}
+
+// ****************************************************
+
+const arr2 = [5, 3, 9, 1, 7];
+console.log(findMinMax(arr2));  // Output: [1, 9]
+
+const arr3 = [5, 3, 9, 1, 7];
+
+const cumulativeSum = (list) => {
+   let result = [list[0]];
+
+   for (let i = 1; i < list.length; i++) {
+      result.push(list[i] + result[i - 1])
+   }
+   return result
+}
+console.log(cumulativeSum(arr3)); // Returns [1, 4, 9, 16]
+
+// **************************************************
+
+const reverseInPlace = (value) => {
+   return value.split(" ").reverse().join(" ").split("").reverse().join("");
+}
+console.log(reverseInPlace('I am a developer'));
+
+//**************************************************
